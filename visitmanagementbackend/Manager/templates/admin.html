@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="row">
+    <div id="admin" class="col s12">
+        <div class="card material-table">
+            <div class="table-header">
+                <span class="table-title">Total Visitors Inside the Hotel : {{ visit_count }}</span>
+            </div>
+            <table id="datatable">
+                <thead>
+                <tr>
+                    <th>Unique Token</th>
+                    <th>Guest Name</th>
+                    <th>Guest Phone</th>
+                    <th>Guest Email</th>
+                    <th>Check In Time</th>
+                    <th>Check Out</th>
+                    <th>Host Name</th>
+                    <th>Host Email</th>
+                    <th>Host Phone</th>
+                    <th>Address</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for visit in visits %}
+                    <tr>
+                        <td>{{ visit.token }}</td>
+                        <td>{{ visit.guest.name }}</td>
+                        <td>{{ visit.guest.phone }}</td>
+                        <td>{{ visit.guest.email }}</td>
+                        <td title="{{ visit.check_in_time }}">{{ visit.check_in_time }}</td>
+                        <td title="{{ visit.check_out_time }}">{{ visit.check_out_time }}</td>
+                        <td style=""width:300px;>{{ visit.host.name }}</td>
+                        <td>{{ visit.host.email }}</td>
+                        <td>{{ visit.host.phone }}</td>
+                        <td>{{ visit.host.address }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js'></script>
+<script src="{% static 'script.js' %}"></script>
+
+</body>
+</html>
