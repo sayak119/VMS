@@ -35,7 +35,11 @@ def check_in(request):
         email.send_mail(guest.email,
                         subject=f"Your Checkin Token.",
                         body=f"Your Checkout Token in {token}")
+
         sms.sendSMS(guest.phone, f'Your Token for check out is {token}.')
+        sms.sendSMS(host.phone,
+                    f"{guest.name} is here for you. You can contact {guest.name} on {guest.email} or {guest.phone}"
+                    f" Check In time : {timezone.now()}")
         return HttpResponse(status=200)
 
 

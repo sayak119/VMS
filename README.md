@@ -1,6 +1,9 @@
-# VMS
+# Visitor Management System (VMS)
 
 The doc can be found [here](https://summergeeks.in/static/assignments/summergeeks%202020%20-%20SDE%20Assignment.pdf). I added an extra feature regarding the checkout option by making use of unique tokens. When a guest checks in, they are given a unique token too. So that while checking out, they can enter it into the system. An admin page has also been added for monitoring. In this project, **Sendgrid** and **Textlocal** for the task of sending email and sending SMS to the parties involved. Also added the count of guests at any moment in the building.
+
+* For **Textlocal** go through the docs present [here](https://api.textlocal.in/docs/).
+* For **Sendgrid** go through the docs present [here](https://github.com/sendgrid/sendgrid-python).
 
 ## Machine Configuration
 
@@ -84,3 +87,18 @@ Admin - 127.0.0.1:8000/admin
 
 * Admin (Guest checked out)
 ![Admin checked out](screenshots/admin-checked_out.png)
+
+* Updating host about guest
+![Sending host update](screenshots/sending_host_update.png)
+
+* Sending guest token on email
+![Sending guest token on email](screenshots/sending_guest_token.png)
+
+* Sending final email when guest exits
+![Sending final email when guest exits](screenshots/thanks_for_visiting_email.png)
+
+* Guest checkout token via SMS
+![Guest checkout token via SMS](screenshots/guest_token.png)
+
+* Informing Host about Guest checkin via SMS
+![Informing Host about Guest checkin via SMS](screenshots/host_SMS.png)

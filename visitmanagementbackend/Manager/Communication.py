@@ -22,9 +22,8 @@ class Sms:
         request = urllib.request.Request("https://api.textlocal.in/send/?")
         f = urllib.request.urlopen(request, data)
         fr = f.read()
+        print(fr)
         return fr
-
-
 
 
 class Email:
@@ -42,9 +41,9 @@ class Email:
         try:
             sg = SendGridAPIClient(self.api_key)
             response = sg.send(message)
-            # print(response.status_code)
-            # print(response.body)
-            # print(response.headers)
+            print(response.status_code)
+            print(response.body)
+            print(response.headers)
         except Exception as e:
             print('errror')
             print(e.message)
